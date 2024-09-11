@@ -34,39 +34,62 @@ const getAnimes = () => {
         movieType.innerText = type;
 
         card.addEventListener("click", () => {
+          // create elements
           const background = createElement("div");
           background.classList.add("background");
-          const modal = `
-          <div class="modal">
-            <img class="bgImage"
-              src="${attributes.posterImage.large}"
-              alt=""
-            />
-           <div class="modal-preview">
-              <img class="poster" 
-              src="${attributes.posterImage.small}" alt=""
-              >
-              <div class="descriptionContainer">
-              <span class="title-modal">${
-                attributes.titles.en
-                  ? attributes.titles.en
-                  : attributes.titles.en_jp
-              }</span>
-              <div class="button">
-                <button class="btnTrailer">Trailer</button>
-              <span class="year">${attributes.startDate}</span>
-              </div>
-              <p class="description">${attributes.description}</p>
-              <button class="btnTrailer" id="btnClose">Close</button>
-          </div>
-        </div>
-      </div>`;
+          const modal = createElement("div");
+          const bgImage = createElement("img");
+          const modalPreview = createElement("div");
+          const posterImg = createElement("img");
+          const descriptionContainer = createElement("div");
+          const title = createElement("span");
+          const btnContainer = createElement("div");
+          const btnTrailer = createElement("button");
+          const year = createElement("span");
+          const containLow = createElement("div");
+          const description = createElement("p");
+          const btnClose = createElement("button");
 
-          background.innerHTML = modal;
+          // class assign
+          modal.classList.add("modal");
+          bgImage.classList.add("bgImage");
+          modalPreview.classList.add("modal-preview");
+          posterImg.classList.add("poster");
+          descriptionContainer.classList.add("descriptionContainer");
+          title.classList.add("title-modal");
+          btnContainer.classList.add("button");
+          btnTrailer.classList.add("btnTrailer");
+          year.classList.add("year");
+          containLow.classList.add("containLow");
+          description.classList.add("description");
+          btnClose.classList.add("btnClose");
 
+          // assign values
+          bgImage.src = attributes.posterImage.large;
+          posterImg.src = attributes.posterImage.small;
+          title.innerText = attributes.titles.en
+            ? attributes.titles.en
+            : attributes.titles.en_jp;
+          btnTrailer.innerText = "Trailer";
+          year.innerText = attributes.startDate;
+          description.innerText = attributes.description;
+          btnClose.innerText = "Close";
+
+          // append childs
+          modal.appendChild(bgImage);
+          modal.appendChild(modalPreview);
+          modalPreview.appendChild(posterImg);
+          modalPreview.appendChild(descriptionContainer);
+          descriptionContainer.appendChild(title);
+          descriptionContainer.appendChild(btnContainer);
+          descriptionContainer.appendChild(containLow);
+          btnContainer.appendChild(btnTrailer);
+          btnContainer.appendChild(year);
+          containLow.appendChild(description);
+          containLow.appendChild(btnClose);
+
+          background.appendChild(modal);
           document.body.appendChild(background);
-
-          const btnClose = document.getElementById("btnClose");
 
           btnClose.addEventListener("click", () => {
             document.body.removeChild(background);
