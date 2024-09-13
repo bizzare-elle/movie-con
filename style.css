@@ -18,13 +18,46 @@
 }
 
 body {
-  padding-inline: 200px;
-  padding-block: 50px;
+  padding-top: 30px;
   background-color: var(--background);
   color: var(--textColor);
 }
 
+.navbar {
+  padding-inline: 200px;
+  display: flex;
+  justify-content: space-between;
+  padding-bottom: 40px;
+}
+
+.name {
+  font-weight: bold;
+  font-size: 35px;
+  color: #63188c;
+}
+
+.search {
+  color: var(--textColor);
+  background-color: #63188c29;
+  border: 1px solid #63188c;
+  padding-block: 10px;
+  padding-inline: 15px;
+  border-radius: var(--radius);
+  transition: padding-right 0.55s ease-in;
+  outline: none;
+}
+
+.search:focus {
+  padding-right: 40px;
+  border: 1px solid #63188c;
+}
+
+.search::placeholder {
+  color: #63188c;
+}
+
 .container {
+  padding-inline: 200px;
   margin-top: 30px;
   display: grid;
   column-gap: 15px;
@@ -79,10 +112,9 @@ body {
   color: var(--secondary);
   border: 1px solid var(--secondary);
   transition: background-color 0.25s;
-
 }
 
-.btnTrailer:hover{
+.btnTrailer:hover {
   background-color: #63188c86;
   color: var(--textColor);
 }
@@ -95,14 +127,13 @@ body {
   font-weight: bold;
   background-color: transparent;
   color: var(--secondary);
-  float: inline-end; 
-  margin-top: 10px ;
+  float: inline-end;
+  margin-top: 10px;
   border: 1px solid var(--secondary);
   transition: background-color 0.25s;
-
 }
 
-.btnClose:hover{
+.btnClose:hover {
   background-color: #63188c86;
   color: var(--textColor);
 }
@@ -166,7 +197,6 @@ body {
   display: flex;
   flex-direction: column;
   row-gap: 5px;
-
 }
 
 .modal-preview {
@@ -174,7 +204,6 @@ body {
   display: flex;
   gap: 15px;
 }
-
 
 .title-modal {
   font-size: 30px;
@@ -185,4 +214,22 @@ body {
 .description {
   font-weight: lighter;
   font-size: 15px;
+}
+
+.movie-type {
+  padding-inline: 200px;
+}
+
+footer {
+  margin-top: 70px;
+  height: min-content;
+  background-color: #63188c40;
+}
+
+footer div {
+  padding-inline: 200px;
+  padding-block: 50px;
+}
+
+footer span {
 }
